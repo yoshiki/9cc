@@ -140,8 +140,10 @@ int main(int argc, char **argv) {
             continue;
         }
 
-        expect('-');
-        printf("  sub rax, %d\n", expect_number());
+        if (consume('-')) {
+            printf("  sub rax, %d\n", expect_number());
+            continue;
+        }
     }
 
     printf("  ret\n");
